@@ -24,10 +24,10 @@ target = input("Enter host to Scan: ")
 host = socket.gethostbyname(target)
 
 try:
-    for port in range(1, 1025):
+    for port in range(1, 20000):
         #AF_INET is IPv4 AF_INET6 is IPv6, SOCK_STREAM is TCP SOCK_DGRAM is UDP
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(1)  # Set a more reasonable timeout
+        sock.settimeout(0.1)  # Set a more reasonable timeout
 
         result = sock.connect_ex((host, port))
         if result == 0:
